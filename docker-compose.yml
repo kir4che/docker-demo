@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: frontend
+    build: ./react-docker
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./react-docker:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  backend:
+    container_name: backend
+    build: ./node-docker
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./node-docker:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
