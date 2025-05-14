@@ -5,7 +5,7 @@ services:
     container_name: frontend
     build: ./react-docker
     ports:
-      - "5173:5173"
+      - "8080:8080"
     volumes:
       - ./react-docker:/app
       - /app/node_modules
@@ -16,7 +16,7 @@ services:
     container_name: backend
     build: ./node-docker
     ports:
-      - "8080:8080"
+      - "8000:8000"
     volumes:
       - ./node-docker:/app
       - /app/node_modules
